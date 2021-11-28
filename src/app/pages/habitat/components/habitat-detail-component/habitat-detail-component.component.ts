@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { HabitatsService } from 'src/app/shared/services/habitats.service';
-import { Habitat } from '../../models/habitat';
+import { Habitat } from '../../../../shared/models/habitat';
 
 @Component({
   selector: 'app-habitat-detail-component',

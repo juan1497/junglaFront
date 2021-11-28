@@ -1,4 +1,4 @@
-import {Habitat} from "../../habitat/models/habitat"
+import { Family } from "./family"
 export interface Animal {
     _id?:string;
     id:number;
@@ -13,10 +13,4 @@ export interface AnimalDetail{
     isCarnivore:boolean;
     family:Family
 }
-interface Family{
-    _id:string;
-    id:number;
-    name:string;
-    livingInGroup:boolean;
-    habitat:Habitat;
-}
+

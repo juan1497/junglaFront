@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators,FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Animal } from 'src/app/shared/models/animals';
 import { AnimalsService } from 'src/app/shared/services/animals.service';
 import { FamiliesService } from 'src/app/shared/services/families.service';
-import { Animal } from '../../../../shared/models/animals';
 
 @Component({
-  selector: 'app-animal-form-component',
-  templateUrl: './animal-form-component.component.html',
-  styleUrls: ['./animal-form-component.component.scss']
+  selector: 'app-animal-form',
+  templateUrl: './animal-form.component.html',
+  styleUrls: ['./animal-form.component.scss']
 })
-export class AnimalFormComponentComponent implements OnInit {
+export class AnimalFormComponent implements OnInit {
   animalForm:FormGroup;
   family:any;
   constructor(form:FormBuilder,private router:Router,private api:AnimalsService,private apiF:FamiliesService) {
@@ -53,5 +53,8 @@ export class AnimalFormComponentComponent implements OnInit {
         }
       });
     }
+  }
+  addFamily(){
+    this.router.navigate(['add/family'])
   }
 }

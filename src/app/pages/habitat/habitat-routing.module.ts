@@ -6,7 +6,7 @@ import { HabitatListComponentComponent } from './components/habitat-list-compone
 
 const routes: Routes = [
   {path:'',component:HabitatListComponentComponent},
-  {path:'form',component:HabitatFormComponentComponent},
+  // {path:'form',component:HabitatFormComponentComponent},
   {path:'habitat/:id',component:HabitatDetailComponentComponent}
 ];
 

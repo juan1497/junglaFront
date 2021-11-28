@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="habitatForm" >
+    <label>ID: </label>
+    <input formControlName="id"  type="number">
+    <div *ngIf="!habitatForm.get('id')?.valid && (habitatForm.get('id')?.dirty)" class="alerta">
+        Has introducido mal el  campo</div>
+    <label>Name: </label>
+    <input formControlName="name"  type="text">
+    <div *ngIf="!habitatForm.get('name')?.valid && (habitatForm.get('name')?.dirty)" class="alerta">
+        Has introducido mal el  campo</div>
+    <label>Location: </label>
+    <input formControlName="location"  type="text">
+    <div *ngIf="!habitatForm.get('location')?.valid && (habitatForm.get('location')?.dirty)" class="alerta">
+        Has introducido mal el  campo</div>
+    <label>Tipo: </label>
+    <select formControlName="mode" >
+        <option value="Tierra" name="">Tierra</option>
+        <option value="Mar" name="">Mar</option>
+        <option value="Aire" name="">Aire</option>
+    </select>
+    <button type="submit" [disabled]="!habitatForm.valid">Enviar</button>
+</form >

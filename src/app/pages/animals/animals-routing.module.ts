@@ -6,7 +6,7 @@ import { AnimalsListComponentComponent } from './components/animals-list-compone
 
 const routes: Routes = [
   {path:'',component:AnimalsListComponentComponent},
-  {path:'form',component:AnimalFormComponentComponent},
+  // {path:'form',component:AnimalFormComponentComponent},
   {path:'animal/:id',component:AnimalDetailComponentComponent}
 ];
 

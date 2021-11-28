@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="animalForm" >
+
+    <label>ID: </label>
+    <input formControlName="id" type="number">
+    <label>Name: </label>
+    <input formControlName="name" type="text">
+    <label>Is Carnivoro </label>
+    <select formControlName="isCarnivore">
+        <option value=true>yes</option>
+        <option value=false>Not</option>
+    </select>
+    <fieldset>
+        <legend>Family</legend>
+        <label *ngFor="let f of family">
+            <input formControlName="family" type="radio" value="{{f._id}}"> {{f.name}}
+        </label>
+        <button type="button" (click)="addFamily()">+</button>
+    </fieldset> 
+
+    <button type="submit"  [disabled]="!animalForm.valid"> Enviar</button>
+
+</form>

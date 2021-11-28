@@ -2,7 +2,7 @@
     <li *ngFor="let habitat of habitats">
         <h3>{{habitat.id}}</h3>
         <h3>{{habitat.name}}</h3>
-        <iframe
+        <!-- <iframe
                 width="300"
                 height="330"
                 id="gmap_canvas"
@@ -11,7 +11,7 @@
                 scrolling="no"
                 marginheight="0"
                 marginwidth="0"
-            ></iframe>
+            ></iframe> -->
         <h3>{{habitat.mode}}</h3>
         <button [routerLink]="['habitat/',habitat.id]"> ver detail</button>
     </li>

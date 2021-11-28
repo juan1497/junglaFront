@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AnimalsService } from 'src/app/shared/services/animals.service';
-import { AnimalDetail } from '../../models/animals';
+import { AnimalDetail } from '../../../../shared/models/animals';
 
 @Component({
   selector: 'app-animal-detail-component',

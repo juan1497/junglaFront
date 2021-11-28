@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="familyForm">
+
+    <label > ID :</label>
+    <input formControlName="id"type="number">
+    <label > Name :</label>
+    <input formControlName="name"type="text">
+    <label > Livin in Group :</label>
+    <select formControlName="livingInGroup">
+        <option value=true>Yes</option>
+        <option value=false>Not</option>
+    </select>
+    <fieldset>
+        <legend>Habitat</legend>
+        <label *ngFor="let h of habitats">
+            <input formControlName="habitat" type="radio" value="{{h._id}}"> {{h.name}}
+        </label>
+        <button type="button" (click)="addHabitat()">+</button>
+    </fieldset>
+    <button type="submit" [disabled]="!familyForm.valid">Crear</button>
+
+</form>
