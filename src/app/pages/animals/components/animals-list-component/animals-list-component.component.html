@@ -1,0 +1,15 @@
+<ul>
+    lista de animales
+    <li *ngFor="let animal of animals">
+        <h3> ID : {{animal.id}}</h3>
+        <h3>Nombre : {{animal.name}}</h3>
+        <div *ngIf="animal.isCarnivore">
+            <h3>Carnivoro: si</h3>
+        </div>
+        <div *ngIf="!animal.isCarnivore">
+            <h3>Carnivoro: no</h3>
+        </div>
+        <h3> Family: {{animal.family}}</h3>
+        <button [routerLink]="['animal/',animal.id]"> ver detail</button>
+    </li>
+</ul>

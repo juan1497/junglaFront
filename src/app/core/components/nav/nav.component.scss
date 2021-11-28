@@ -1,0 +1,15 @@
+ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    
+    li{
+
+        a{
+            font-size: 30px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color:black;
+        }
+    }
+}
