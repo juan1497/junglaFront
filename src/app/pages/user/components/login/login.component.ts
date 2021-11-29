@@ -14,12 +14,12 @@ export class LoginComponent implements OnInit {
   registerForm!:FormGroup
   constructor(private builder:FormBuilder,private api:AuthService,private router:Router) {
     this.loginForm=this.builder.group({
-      email:['',[Validators.required]],
+      email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required]]
     })
     this.registerForm=builder.group({
       name:['',[Validators.required]],
-      email:['',[Validators.required]],
+      email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required]],
       repeatPassword:['',[Validators.required]]
     })

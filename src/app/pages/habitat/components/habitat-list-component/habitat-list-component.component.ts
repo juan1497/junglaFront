@@ -15,7 +15,8 @@ export class HabitatListComponentComponent implements OnInit {
     this.getHabitats()
   }
   getHabitats(){
-    this.api.getHabitats().subscribe((response:any)=>{
+    const token=localStorage.getItem("token")
+    this.api.getHabitats(token).subscribe((response:any)=>{
       this.habitats=response.data.habitats.map(({_id,id,name,location,mode}:any)=>({_id,id,name,location: encodeURIComponent(location),mode}))
     })
   }

@@ -27,13 +27,14 @@ export class FamilyFormComponent implements OnInit {
   }
   onSubmit(){
     if(this.familyForm.valid){
+      const token=localStorage.getItem('token')
       const family:Family={
         id:this.familyForm.get('id')!.value,
         name:this.familyForm.get('name')!.value,
         livingInGroup:this.familyForm.get('livingInGroup')!.value,
         habitat:this.familyForm.get('habitat')!.value
       }
-      this.api.addFamily(family)
+      this.api.addFamily(family,token)
       .subscribe((res:any)=>{
         console.log(res)
         switch(res.status){
@@ -50,7 +51,8 @@ export class FamilyFormComponent implements OnInit {
     }
   }
   getHabitats(){
-    this.apiH.getHabitats()
+    const token=localStorage.getItem("token")
+    this.apiH.getHabitats(token)
     .subscribe((res:any)=>{
       this.habitats=res.data.habitats.map(({_id,name}:any)=>({_id,name}))
     })

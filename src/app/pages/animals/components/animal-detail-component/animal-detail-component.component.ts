@@ -18,7 +18,8 @@ export class AnimalDetailComponentComponent implements OnInit {
     this.getAnimal();
   }
   getAnimal(){
-    this.api.getAnimal(this.id)
+    const token=localStorage.getItem("token")
+    this.api.getAnimal(this.id,token)
     .subscribe((res:any)=>{
       this.animal={
         _id:res.data.animal._id,

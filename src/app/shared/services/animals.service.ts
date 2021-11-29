@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -8,16 +8,36 @@ export class AnimalsService {
   addAnimal(data:any) {
     return this.http.post(this.url+"add/",data);
   }
-  getAnimals(){
-    return this.http.get(this.url)
+  getAnimals(token:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    };
+    return this.http.get(this.url,httpOptions)
   }
-  getAnimal(id:any){
-    return this.http.get(this.url+`${id}`)
+  getAnimal(id:any,token:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    };
+    return this.http.get(this.url+`${id}`,httpOptions)
   }
-  updateAnimal(data:any){ 
+  updateAnimal(data:any,token:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    }; 
     return this.http.put(this.url+`update`,data)
   }
-  deleteAnimal(data:any){
-    return this.http.delete(this.url+`delete/${data}`)
+  deleteAnimal(data:any,token:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    };
+    return this.http.delete(this.url+`delete/${data}`,httpOptions)
   }
 }

@@ -1,23 +1,49 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class FamiliesService {
   url: string="http://localhost:4000/family/"
+  
   constructor(private http:HttpClient) { }
-  addFamily(data:any) {
-    return this.http.post(this.url+"add/",data);
+  addFamily(data:any,token:any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    }; 
+    return this.http.post(this.url+"add/",data,httpOptions);
   }
-  getFamilies(){
+  getFamilies(token:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    }; 
     return this.http.get(this.url)
   }
-  getFamily(id:any){
-    return this.http.get(this.url+`${id}`)
+  getFamily(id:any,token:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    }; 
+    return this.http.get(this.url+`${id}`,httpOptions)
   }
-  updateFamily(data:any){ 
-    return this.http.put(this.url+`update/${data._id}`,data)
+  updateFamily(data:any,token:any){ 
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    }; 
+    return this.http.put(this.url+`update/${data._id}`,data,httpOptions)
   }
-  deleteFamily(){
-    return this.http.delete(this.url+'delete')
+  deleteFamily(token:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    }; 
+    return this.http.delete(this.url+'delete',httpOptions)
   }
 }

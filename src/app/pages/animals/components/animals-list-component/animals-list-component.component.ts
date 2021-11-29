@@ -33,8 +33,8 @@ export class AnimalsListComponentComponent implements OnInit {
     this.getAnimals()
   }
   getAnimals(){
-    this.api.getAnimals().subscribe((response:any)=>{
-      // console.log(response.data.animals)
+    const token=localStorage.getItem("token")
+    this.api.getAnimals(token).subscribe((response:any)=>{
       this.animals=response.data.animals.map((res:any)=>({
         _id:res._id,
         id:res.id,
@@ -82,22 +82,25 @@ export class AnimalsListComponentComponent implements OnInit {
      
   }
   getFamily(){
-    this.apiF.getFamilies()
+    const token=localStorage.getItem("token")
+    this.apiF.getFamilies(token)
     .subscribe((res:any)=>{
       this.families=res.data.families.map(({_id,name}:any)=>({_id,name}))
     })
 
   }
   getHabitat(){
-    this.apiH.getHabitats()
+    const token=localStorage.getItem("token")
+    this.apiH.getHabitats(token)
     .subscribe((res:any)=>{
       this.habitats=res.data.habitats.map(({_id,name}:any)=>({_id,name}))
     })
   }
   getAnimal(id:any){
+    const token=localStorage.getItem("token")
     this.getFamily()
     this.getHabitat()
-    this.api.getAnimal(id)
+    this.api.getAnimal(id,token)
     .subscribe((response:any)=>{
       const animal=response.data.animal
       console.log(animal.family.name)
@@ -112,6 +115,7 @@ export class AnimalsListComponentComponent implements OnInit {
   }
   update(){
     if(this.updateForm.valid){
+      const token=localStorage.getItem("token")
       const animal:Animal={
         _id:this.updateForm.get('_id')!.value,
         id:this.updateForm.get('id')!.value,
@@ -119,7 +123,7 @@ export class AnimalsListComponentComponent implements OnInit {
         isCarnivore:this.updateForm.get('isCarnivore')!.value,
         family:this.updateForm.get('family')!.value,
       }
-      this.api.updateAnimal(animal)     
+      this.api.updateAnimal(animal,token)     
       .subscribe((response:any)=>{
         switch(response.status){
            case 202:
@@ -136,8 +140,8 @@ export class AnimalsListComponentComponent implements OnInit {
   }
 
   deleteAnimal(id:any){
-    console.log(id)
-    this.api.deleteAnimal(id).subscribe((response:any)=>{
+    const token=localStorage.getItem("token")
+    this.api.deleteAnimal(id,token).subscribe((response:any)=>{
       switch(response.status){
         case 202:
             alert('se a Borrado Correctamente');

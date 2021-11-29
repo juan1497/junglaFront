@@ -1,23 +1,48 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class HabitatsService {
   url: string="http://localhost:4000/habitat/"
   constructor(private http:HttpClient) { }
-  addHabitat(data:any) {
-    return this.http.post(this.url+"add/",data);
+  addHabitat(data:any,token:any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    }; 
+    return this.http.post(this.url+"add/",data,httpOptions);
   }
-  getHabitats(){
-    return this.http.get(this.url)
+  getHabitats(token:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    }; 
+    return this.http.get(this.url,httpOptions)
   }
-  getHabitat(id:any){
-    return this.http.get(this.url+`${id}`)
+  getHabitat(id:any,token:any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    }; 
+    return this.http.get(this.url+`${id}`,httpOptions)
   }
-  updateHabitat(data:any){ 
-    return this.http.put(this.url+`update/${data._id}`,data)
+  updateHabitat(data:any,token:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    };  
+    return this.http.put(this.url+`update/${data._id}`,data,httpOptions)
   }
-  deleteHabitat(){
-    return this.http.delete(this.url+'delete')
+  deleteHabitat(token:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    }; 
+    return this.http.delete(this.url+'delete',httpOptions)
   }
 }

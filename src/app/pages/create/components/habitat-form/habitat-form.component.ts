@@ -23,13 +23,14 @@ export class HabitatFormComponent implements OnInit {
   ngOnInit(): void {}
   onSubmit(): void{
     if(this.habitatForm.valid){
+      const token=localStorage.getItem("token");
       const habitat: Habitat={
         id:this.habitatForm.get('id')!.value,
         name:this.habitatForm.get("name")!.value,
         location:this.habitatForm.get('location')!.value,
         mode:this.habitatForm.get('mode')!.value
       }
-      this.api.addHabitat(habitat).subscribe((response:any)=>{
+      this.api.addHabitat(habitat,token).subscribe((response:any)=>{
         console.log(response)
        switch(response.status){
           case 201:

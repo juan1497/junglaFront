@@ -25,7 +25,8 @@ export class AnimalFormComponentComponent implements OnInit {
     this.getFamily();
   }
   getFamily(){
-    this.apiF.getFamilies()
+    const token=localStorage.getItem("token")
+    this.apiF.getFamilies(token)
     .subscribe((res:any)=>{
       this.family=res.data.families.map(({_id,name}:any)=>({_id,name}))
     })

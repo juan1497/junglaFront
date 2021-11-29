@@ -20,7 +20,8 @@ export class HabitatDetailComponentComponent implements OnInit {
     this.getHabitat()
   }
   getHabitat(){
-    this.api.getHabitat(this.id)
+    const token=localStorage.getItem("token")
+    this.api.getHabitat(this.id,token)
     .subscribe((res:any)=>{
     console.log(res.data.habitat.name)
     this.habitat={
