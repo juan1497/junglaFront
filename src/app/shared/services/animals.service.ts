@@ -15,9 +15,9 @@ export class AnimalsService {
     return this.http.get(this.url+`${id}`)
   }
   updateAnimal(data:any){ 
-    return this.http.put(this.url+`update/${data._id}`,data)
+    return this.http.put(this.url+`update`,data)
   }
-  deleteTarea(){
-    return this.http.delete(this.url+'delete')
+  deleteAnimal(data:any){
+    return this.http.delete(this.url+`delete/${data}`)
   }
 }

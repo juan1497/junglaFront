@@ -4,13 +4,13 @@
             <a [routerLink]="['']" > Home</a>
         </li>
         <li>
-            <a [routerLink]="['animals']">Animals</a>
+            <a *appRoles="['user','admin']" [routerLink]="['animals']">Animals</a>
         </li>
         <li>
-            <a [routerLink]="['habitats']">Habitats</a>
+            <a *appRoles="['user','admin']" [routerLink]="['habitats']">Habitats</a>
         </li>
         <li>
-            <a [routerLink]="['add/animal']"> Add Animal</a>
+            <a *appRoles="['admin']" [routerLink]="['add/animal']"> Add Animal</a>
         </li>
         <li>
             <a [routerLink]="['user/login']"> Login</a>

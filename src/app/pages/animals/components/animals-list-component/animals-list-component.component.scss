@@ -1,0 +1,45 @@
+.modal-content{
+    background-color: #262626!important;
+    .modal-header{
+        border-bottom: none;
+        .modal-title{
+            color: hsla(0,0%,100%,.5);
+        }
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        p{
+            color:white;
+            text-align: center;
+        }
+        input{
+            color:white;
+            padding: 5px;
+            background-color: transparent;
+            border: white 1px solid;
+            border-radius: 4px;
+            text-align: left;
+            align-self: center;
+            margin-top: 20px;
+
+        }
+
+        button{
+            margin-top: 48px;
+            align-self: center;
+            // width: 100px;
+            border-style: none;
+            border: 1px solid white;
+            background-color: #262626;
+            border-radius: 4px;
+            color: white;
+            padding: 10px;
+            &:hover{
+                background-color: white;
+                color:black;
+                transition: 0.8s;
+            }
+        }
+    }
+}

@@ -7,19 +7,23 @@ import { AnimalDetailComponentComponent } from './components/animal-detail-compo
 import { AnimalFormComponentComponent } from './components/animal-form-component/animal-form-component.component';
 import { AnimalsService } from 'src/app/shared/services/animals.service';
 import { FamiliesService } from 'src/app/shared/services/families.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DirectivasModule } from 'src/app/shared/directivas/directivas.module';
+import { HabitatsService } from 'src/app/shared/services/habitats.service';
 
 
 @NgModule({
   declarations: [
     AnimalsListComponentComponent,
     AnimalDetailComponentComponent,
-    AnimalFormComponentComponent
+    AnimalFormComponentComponent,
   ],
   imports: [
     CommonModule,
     AnimalsRoutingModule,
-    ReactiveFormsModule
-  ],providers: [AnimalsService,FamiliesService]
+    ReactiveFormsModule,
+    FormsModule,
+    DirectivasModule
+  ],providers: [AnimalsService,FamiliesService,HabitatsService]
 })
 export class AnimalsModule { }

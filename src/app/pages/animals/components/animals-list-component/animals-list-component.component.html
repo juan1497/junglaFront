@@ -1,16 +1,96 @@
+<input type="text" [(ngModel)]="filter.text" (ngModelChange)="filterAnimals()" placeholder="Busca un animal" />
+livingInGroup
+<select [(ngModel)]="filter.option" (ngModelChange)="filterAnimals()">
+    <option [ngValue]=null>-</option>
+    <option [ngValue]=true> si</option>
+    <option [ngValue]=false>no</option>
+</select>
 
-<ul>
-    lista de animales
-    <li *ngFor="let animal of animals">
-        <h3> ID : {{animal.id}}</h3>
-        <h3>Nombre : {{animal.name}}</h3>
-        <div *ngIf="animal.isCarnivore">
-            <h3>Carnivoro: si</h3>
+<div *ngIf="!filter.text&&filter.option==null">
+    <ul>
+        lista de animales
+        <li *ngFor="let animal of animals">
+            <a [routerLink]="['animal/',animal.id]">
+            <h3> ID : {{animal.id}}</h3>
+            <h3>Nombre : {{animal.name}}</h3>
+            <div *ngIf="animal.isCarnivore">
+                <h3>Carnivoro: si</h3>
+            </div>
+            <div *ngIf="!animal.isCarnivore">
+                <h3>Carnivoro: no</h3>
+            </div>
+            <h3> Family: {{animal.family.name}}</h3>
+            <h3> livingInGroup: {{animal.family.livingInGroup?"si":"no"}}</h3>
+            </a>
+            <button *appRoles="['admin']" (click)="getAnimal(animal.id)" data-bs-toggle="modal"
+                data-bs-target="#updateTarea">Editar</button>
+            <button *appRoles="['admin']" (click)="deleteAnimal(animal._id)">Eliminar</button>               
+        </li>
+    </ul>
+</div>
+
+<div *ngIf="filter.text||(filter.option==false||filter.option==true)">
+    <div *ngIf="filteredList==[]">
+        <p>No Hay concidencias</p>
+    </div>
+    <div *ngIf="filteredList">
+        <ul>
+            lista de animales
+            <li *ngFor="let animal of filteredList">
+                <a [routerLink]="['animal/',animal.id]">
+                <h3> ID : {{animal.id}}</h3>
+                <h3>Nombre : {{animal.name}}</h3>
+                <div *ngIf="animal.isCarnivore">
+                    <h3>Carnivoro: si</h3>
+                </div>
+                <div *ngIf="!animal.isCarnivore">
+                    <h3>Carnivoro: no</h3>
+                </div>
+                <h3> Family: {{animal.family.name}}</h3>
+                <h3> livingInGroup: {{animal.family.livingInGroup?"si":"no"}}</h3>
+                 </a>
+                <button *appRoles="['admin']" (click)="getAnimal(animal.id)" data-bs-toggle="modal"
+                    data-bs-target="#updateTarea">Editar</button>
+                <button *appRoles="['admin']" (click)="deleteAnimal(animal._id)">Eliminar</button>            
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- modal update -->
+<div class="modal fade" id="updateTarea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tarea</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="update()" [formGroup]="updateForm">
+                    <p>Ingresa La Tarea Que Deseas Agregar</p>
+                    <input formControlName="_id" type="text" readonly hidden>
+                    <input formControlName="id" type="number" placeholder="id">
+                    <div *ngIf="!updateForm.get('id')?.valid && (updateForm.get('id')?.dirty)" class="alerta">
+                        Has introducido mal el campo</div>
+                    <input class="description" formControlName="name" type="text" placeholder="Name">
+                    <div *ngIf="!updateForm.get('name')?.valid && (updateForm.get('name')?.dirty)" class="alerta">
+                        Has introducido mal el campo</div>
+                    <label>Is carnivoro</label>
+                        <select formControlName="isCarnivore">
+                            <option value=true>si</option>
+                            <option value=false>no</option>
+                        </select>
+                        <fieldset>
+                            <legend>Family</legend>
+                            <label *ngFor="let f of families">
+                                <input formControlName="family" type="radio" value="{{f._id}}"> {{f.name}}
+                            </label>
+                        </fieldset> 
+                    <button type="submit" data-bs-dismiss="modal" [disabled]="!updateForm.valid">
+                        Modificar Animal</button>
+                </form>
+            </div>
         </div>
-        <div *ngIf="!animal.isCarnivore">
-            <h3>Carnivoro: no</h3>
-        </div>
-        <h3> Family: {{animal.family}}</h3>
-        <button [routerLink]="['animal/',animal.id]"> ver detail</button>
-    </li>
-</ul>
+    </div>
+</div>

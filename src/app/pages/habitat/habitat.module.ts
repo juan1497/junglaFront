@@ -7,6 +7,7 @@ import { HabitatFormComponentComponent } from './components/habitat-form-compone
 import { HabitatDetailComponentComponent } from './components/habitat-detail-component/habitat-detail-component.component';
 import { HabitatsService } from 'src/app/shared/services/habitats.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DirectivasModule } from 'src/app/shared/directivas/directivas.module';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     HabitatRoutingModule,
-    ReactiveFormsModule
-  ],providers:[HabitatsService]
+    ReactiveFormsModule,
+    DirectivasModule
+    
+  ],providers:[HabitatsService],exports:[]
 })
 export class HabitatModule { }
