@@ -20,7 +20,7 @@ export class FamiliesService {
         'Authorization': "Bearer " + token
       })
     }; 
-    return this.http.get(this.url)
+    return this.http.get(this.url,httpOptions)
   }
   getFamily(id:any,token:any){
     const httpOptions = {
