@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
         email:this.loginForm.get('email')?.value,
         password:this.loginForm.get('password')?.value
       }
-      console.log(user)
       this.api.login(user).subscribe((response:any)=>{
         switch(response.status){
           case 201:

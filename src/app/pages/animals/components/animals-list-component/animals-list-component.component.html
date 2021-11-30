@@ -28,7 +28,7 @@
             </a>
             <div>
                 <button *appRoles="['admin']" (click)="getAnimal(animal.id)" data-bs-toggle="modal"
-                data-bs-target="#updateTarea">Editar</button>
+                data-bs-target="#updateAnimal">Editar</button>
                 <button *appRoles="['admin']" (click)="deleteAnimal(animal._id)">Eliminar</button>
             </div>
             
@@ -57,7 +57,7 @@
                 </a>
                 <div>
                     <button *appRoles="['admin']" (click)="getAnimal(animal.id)" data-bs-toggle="modal"
-                    data-bs-target="#updateTarea">Editar</button>
+                    data-bs-target="#updateAnimal">Editar</button>
                     <button *appRoles="['admin']" (click)="deleteAnimal(animal._id)">Eliminar</button>
                 </div>
             </li>
@@ -67,7 +67,7 @@
 </div>
 
 <!-- modal update -->
-<div class="modal fade" id="updateTarea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="updateAnimal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header ">
