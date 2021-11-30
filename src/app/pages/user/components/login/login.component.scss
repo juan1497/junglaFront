@@ -5,21 +5,22 @@
     
     .formulario{
         background-color:#262626;
-        margin-top: 10pc;
+        margin-top: 5pc;
         border-radius: 15px;
-        padding: 2pc;
+        padding: 3pc;
         form{
             display: flex;
             flex-direction: column;
             
             h2{
+                margin-top:10px;
                 text-align: center;
                 color:white;
             }
             p{
-
                 text-align: center;
-                color:hsla(0,0%,100%,.5)
+                color:hsla(0,0%,100%,.5);
+                padding: 10px !important;
             }
             input{
                 color:white;
@@ -27,7 +28,7 @@
                 background-color: transparent;
                 border: white 1px solid;
                 border-radius: 4px;
-                text-align: left;
+                text-align: center;
                 align-self: center;
                 margin-top: 20px;
                 
@@ -71,8 +72,11 @@
     background-color: #262626!important;
     .modal-header{
         border-bottom: none;
+        margin-right: 20px;
+        margin-top: 10px;
         .modal-title{
             color: hsla(0,0%,100%,.5);
+            margin-left: 20px;
         }
     }
     form{
@@ -88,13 +92,14 @@
             background-color: transparent;
             border: white 1px solid;
             border-radius: 4px;
-            text-align: left;
+            text-align: center;
             align-self: center;
             margin-top: 20px;
 
         }
         button{
             margin-top: 48px;
+            margin-bottom: 20px;
             align-self: center;
             width: 100px;
             border-style: none;
@@ -102,7 +107,7 @@
             background-color: #262626;
             border-radius: 4px;
             color: white;
-            padding: 5px;
+            padding: 10px!important;
             &:hover{
                 background-color: white;
                 color:black;

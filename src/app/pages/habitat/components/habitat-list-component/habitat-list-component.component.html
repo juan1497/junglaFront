@@ -1,24 +1,22 @@
 
 
-<ul>
+<ul class="list_habitats">
     <li *ngFor="let habitat of habitats">
-        <h3>{{habitat.id}}</h3>
-        hola
         <h3>{{habitat.name}}</h3>
-         <!-- <iframe
-                width="300"
-                height="330"
-                id="gmap_canvas"
-                src="https://maps.google.com/maps?q={{habitat.location}}&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                frameborder="0"
-                scrolling="no"
-                marginheight="0"
-                marginwidth="0"
-            ></iframe>  -->
-            {{habitat.location}}
-        <h3>{{habitat.mode}}</h3>
-        <button *appRoles="['admin']">Editar</button>
+        <iframe
+            width="300"
+            height="330"
+            id="gmap_canvas"
+            src="https://maps.google.com/maps?q=-4.479925%2C-63.51853944444444&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+        ></iframe> 
+        <p> {{habitat.mode}} {{habitat.location}}</p>
+        <div>
+            <button *appRoles="['admin']">Editar</button>
         <button *appRoles="['admin']">eliminar</button>
-        <button [routerLink]="['habitat/',habitat.id]"> ver detail</button>
+        </div>
     </li>
 </ul>

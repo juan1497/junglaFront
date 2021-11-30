@@ -1,15 +1,10 @@
-ul{
-    display: flex;
-    list-style: none;
-    justify-content: space-evenly;
-    
-    li{
-
-        a{
-            font-size: 30px;
-            text-decoration: none;
-            text-transform: uppercase;
-            color:black;
-        }
-    }
+.item_list{
+    margin-right: 20px;
+}
+.home{
+    margin-left: 20px;
+}
+.burguer {
+    border-style: none !important;
+    margin-right: 10px;
 }

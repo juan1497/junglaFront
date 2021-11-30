@@ -1,11 +1,24 @@
-<div >
-    <h1>{{animal.name}}</h1>
-    <p>Carnivoro : {{animal.isCarnivore?"Si":"No"}}</p>
-    <h5>Familia </h5>
-    <p>Pertenece a la familia : {{animal.family.name}}</p>
-    <p>Este tipo de familia puede vivir en manada : {{animal.family.livingInGroup?"Si":"No"}}</p>
-    <h5>Habitat</h5>
-    <p>nombre del habitat: {{animal.family.habitat.name}}</p>
-    <p>localizacion del habitat: {{animal.family.habitat.location}}</p>
-    <p>y son de tipo : {{animal.family.habitat.mode}}</p>
+<div class="contenedor">
+    
+        <h1>{{animal.name}}</h1>
+    
+    <div class="contenedor_informacion">
+        <p class="informacion"> Es un animal que proviene de la familia {{animal.family.name}}
+        Este tipo de animal {{animal.isCarnivore?"es carnivoro":"no es carnivoro"}}
+        y Normalmente {{animal.family.livingInGroup?"viven en grupos de su misma especie":"no viven en grupos de su misma especie"}}.
+        estos animales son de tipo {{animal.family.habitat.mode=="Mar"?"Acuaticos":""}} 
+            {{animal.family.habitat.mode=="Tierra"?"Terrestres":""}}
+            {{animal.family.habitat.mode=="Aire"?"Areos":""}}
+        el habitat comun de estos animales son {{animal.family.habitat.name}}
+        mas o menos en esta posicion {{animal.family.habitat.location}}
+        </p>
+    </div>
+    <iframe
+        id="gmap_canvas"
+        src="https://maps.google.com/maps?q=Casa%20pepe%20de%20la%20Juder%C3%ADa&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        frameborder="0"
+        scrolling="no"
+        marginheight="0"
+        marginwidth="0"
+    ></iframe>
 </div>

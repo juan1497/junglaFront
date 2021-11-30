@@ -1,0 +1,38 @@
+.list_habitats{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    li{
+        width: 100%;
+        max-width: 300px;
+        margin: 10px;
+        h3{
+            text-align: center;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            button{
+                border-style: none;
+                border-radius: 7px;
+                background-color:whitesmoke;
+                margin: 5px;
+                padding: 10px!important;
+                font-size: 20px;
+                text-transform: capitalize;
+                &:hover{
+                    background-color:black;
+                    color:whitesmoke;
+                    transition:1s;
+                }
+            }
+            
+        }
+
+    }
+
+
+}

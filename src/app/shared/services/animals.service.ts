@@ -5,8 +5,13 @@ import { Injectable } from '@angular/core';
 export class AnimalsService {
   url: string="http://localhost:4000/animal/"
   constructor(private http:HttpClient) { }
-  addAnimal(data:any) {
-    return this.http.post(this.url+"add/",data);
+  addAnimal(data:any,token:any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': "Bearer " + token
+      })
+    };
+    return this.http.post(this.url+"add/",data,httpOptions);
   }
   getAnimals(token:any){
     const httpOptions = {
@@ -30,7 +35,7 @@ export class AnimalsService {
         'Authorization': "Bearer " + token
       })
     }; 
-    return this.http.put(this.url+`update`,data)
+    return this.http.put(this.url+`update`,data,httpOptions)
   }
   deleteAnimal(data:any,token:any){
     const httpOptions = {

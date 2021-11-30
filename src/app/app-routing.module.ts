@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { LoginGuard } from './shared/guards/login.guard';
 import { PermisosGuard } from './shared/guards/permisos.guard';
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
     canActivate:[PermisosGuard]
   },
   {
-    path:"user",loadChildren:()=>import("../app/pages/user/user.module").then(m=>m.UserModule)
+    path:"user",loadChildren:()=>import("../app/pages/user/user.module").then(m=>m.UserModule),canActivate:[LoginGuard]
   },
   {
     path:'**',redirectTo:'',pathMatch:'full'

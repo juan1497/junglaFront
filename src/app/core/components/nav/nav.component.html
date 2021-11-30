@@ -1,22 +1,34 @@
-<nav>
-    <ul>
-        <li>
-            <a [routerLink]="['']" > Home</a>
-        </li>
-        <li>
-            <a *appRoles="['user','admin']" [routerLink]="['animals']">Animals</a>
-        </li>
-        <li>
-            <a *appRoles="['user','admin']" [routerLink]="['habitats']">Habitats</a>
-        </li>
-        <li>
-            <a *appRoles="['admin']" [routerLink]="['add/animal']"> Add Animal</a>
-        </li>
-        <li *ngIf="!sesion">
-            <a [routerLink]="['user/login']"> Login</a>
-        </li>
-        <li *ngIf="sesion">
-            <a (click)="logout()"> Log Out</a>
-        </li>
-    </ul>
+
+
+<nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+        <a class="navbar-brand home" [routerLink]="['']">🐒La Jungla🦁</a>
+        <button class="navbar-toggler burguer" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="">🌳</span>
+            <!-- cambiar -->
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav text-center">
+                <li class="nav-item item_list">
+                    <a class="nav-link fs-3"  [routerLink]="['']"> Home</a>
+                </li>
+                <li class="nav-item item_list" >
+                    <a class="nav-link fs-3" *appRoles="['user','admin']" [routerLink]="['animals']">Animales</a>
+                </li>
+                <li class="nav-item item_list">
+                    <a class="nav-link fs-3" *appRoles="['user','admin']" [routerLink]="['habitats']">Habitats</a>
+                </li>
+                <li class="nav-item item_list" >
+                    <a class="nav-link fs-3"*appRoles="['admin']" [routerLink]="['add/animal']"> Añadir Animal</a>
+                </li>
+                <li class="nav-item item_list"  *ngIf="!sesion">
+                    <a class="nav-link fs-3" [routerLink]="['user/login']"> Inicia Sesion</a>
+                </li>
+                <li class="nav-item item_list" *ngIf="sesion">
+                    <a class="nav-link fs-3" (click)="logout()">Salir</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>

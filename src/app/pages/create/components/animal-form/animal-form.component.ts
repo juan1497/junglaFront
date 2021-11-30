@@ -33,13 +33,14 @@ export class AnimalFormComponent implements OnInit {
   }
   onSubmit(){
     if(this.animalForm.valid){
+      const token=localStorage.getItem("token")
       const animal:Animal={
         id:this.animalForm.get('id')!.value,
         name:this.animalForm.get('name')!.value,
         isCarnivore:this.animalForm.get('isCarnivore')!.value,
         family:this.animalForm.get('family')!.value
       }
-      this.api.addAnimal(animal)
+      this.api.addAnimal(animal,token)
       .subscribe((res:any)=>{
         console.log(res)
         switch(res.status){
