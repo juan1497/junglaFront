@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  urlBase="http://localhost:4000/user/"
+  urlBase="https://jungla-eosin.vercel.app/user/"
   constructor(private http:HttpClient) { }
 
   register(data:any){

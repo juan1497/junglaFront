@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class FamiliesService {
-  url: string="http://localhost:4000/family/"
+  url: string="https://jungla-eosin.vercel.app/family/"
   
   constructor(private http:HttpClient) { }
   addFamily(data:any,token:any) {

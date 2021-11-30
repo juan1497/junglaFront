@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class HabitatsService {
-  url: string="http://localhost:4000/habitat/"
+  url: string="https://jungla-eosin.vercel.app/habitat/"
   constructor(private http:HttpClient) { }
   addHabitat(data:any,token:any) {
     const httpOptions = {
